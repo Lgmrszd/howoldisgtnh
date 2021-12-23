@@ -1,6 +1,39 @@
+<!DOCTYPE html>
 <html>
-  <head>How old is GregTech: New Horizons today?</head>
-  <body>
-    <h1>Coming soon! :tm:</h1>
-  </body>
+<head>
+    <title>How old is GregTech: New Horizons today?</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/combine/npm/moment@2.29.1,npm/moment-precise-range-plugin@1.3.0"></script>
+    <script>
+
+
+        var start = moment('2015-10-05');
+        var now = moment();
+
+        var diff_js = moment.preciseDiff(start, now, true);
+        
+        var diff_years = diff_js['years'];
+        var diff_months = diff_js['months'];
+        var diff_days = diff_js['days'];
+        
+        var diff_combined = [];
+
+        diff_combined.push(diff_years + " years")
+
+        if (diff_months !== 0) {
+            diff_combined.push(diff_months + " month" + (diff_months === 1 ? "" : "s"))
+        }
+
+        if (diff_days !== 0) {
+            diff_combined.push(diff_days + " day" + (diff_days === 1 ? "" : "s"))
+        }
+
+        document.write("<h1 style='font-size: 48px;font-size: 3.5vw;position: fixed;top: 50%; transform: translate(1%, -70%);'> GregTech: New Horizons is " + diff_combined.join(", ") + " old today. </h1>")
+
+    </script>
+
+
+</body>
 </html>
